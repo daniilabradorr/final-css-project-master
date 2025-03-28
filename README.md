@@ -6,7 +6,7 @@ Este es el proyecto final del módulo de **CSS y maquetación web** del máster 
 
 ## 🌐 Enlace al proyecto en GitHub Pages
 
-🔗 [Ver proyecto online](https://tuusuario.github.io/nombre-del-repositorio/)
+🔗 [Ver proyecto online](https://daniilabradorr.github.io/final-css-project-master/)
 
 
 
