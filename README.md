@@ -2,6 +2,8 @@
 
 Este es el proyecto final del módulo de **CSS y maquetación web** del máster en Desarrollo Web Full Stack de [ConquerBlocks](https://conquerblocks.com/). El objetivo principal del proyecto es mostrar todo lo aprendido sobre **CSS, HTML, SASS/SCSS**, y la creación de un diseño **responsive**, organizando de manera eficiente la estructura de carpetas y aplicando las buenas prácticas en el desarrollo web.
 
+(TENER EN CUENTA QUE SASS REEMPLAZARA EL USO DEL @IMPORT POR @USE)
+
 ## 🌐 Enlace al proyecto en GitHub Pages
 
 🔗 [Ver proyecto online](https://tuusuario.github.io/nombre-del-repositorio/)
