@@ -301,12 +301,22 @@
 
   // Asegúrate de que los artículos se muestren uno al lado del otro en desktop
   @include breakpoint(desktop) {
+    display: flex;
+    flex-direction: column;
     h2{
-      display: none;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .contenedor-desktop{
+      display: flex;
+      justify-content: center;
+      gap: 30px;
     }
     .cursos__index-curso1, .cursos__index-curso2 {
       flex-direction: column; // Mantiene la columna en pantallas pequeñas
-      width: 45%; // Ajusta el tamaño de los artículos
+      width: 40%; // Ajusta el tamaño de los artículos
+      align-items: center;
+      align-content: center;
     }
   }
 }
@@ -858,7 +868,7 @@ section.hero-login {
 section.hero-cursos {
   background-color: $color-navbar;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 
   h2 {
     text-align: center;
