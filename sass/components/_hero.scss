@@ -7,6 +7,8 @@
       picture {
           padding-top: 0;
           margin-top: 0;
+          margin-bottom: 0;
+          padding-bottom: 0;
       }
       
       h1 {
@@ -26,7 +28,7 @@
       h1:hover {
           color: $color-verde; 
       }
-      margin-bottom: 20px;
+      margin-bottom: 0;
   }
   
 
@@ -34,26 +36,24 @@
       p.introductor {
           align-self: center;
           text-align: center;
-          margin-bottom: 20px;
-          border-radius: 50%;
+          margin-bottom: 0;
           font-size: 13px;
-          background-color: $color-navbar;
-          color: #ffff;
+          font-weight: 800;
+          background: linear-gradient(to right, #fff, #8ce08c);
+          color: $color-navbar;
           padding: 20px;
-          transition: background-color 0.3s ease-in-out, border-radius 0.3s ease-in-out;
+          font-family: $secondary-font;
+          transition: border-radius 0.3s ease-in-out;
 
           .cursiva {
               color: $color-verde;
               background: transparent;
-              transition: color 0.3s ease-in-out;
+              transition: all 0.3s ease-in-out;
           }
       }
 
       p.introductor:hover {
-          border-radius: 45%;
-          background-color: $color-verde;
           color: $color-navbar;
-          font-weight: 800;
 
           .cursiva {
               color: #ffff;
@@ -66,6 +66,7 @@
           flex-direction: column; 
           align-items: center; 
           text-align: center;
+          background: linear-gradient(to right, #fff, #8ce08c);
 
           h2 {
               margin-bottom: 10px;
@@ -90,11 +91,13 @@
           }
 
           p {
+              
               margin-left: 15px;
               margin-right: 15px;
               font-size: 12px;
               font-weight: 700;
               margin-bottom: 10px;
+              font-family: $secondary-font
           }
 
           a.boton-conocenos {
@@ -115,9 +118,6 @@
       .hero__index-content{
         p.introductor{
           font-size: 20px;
-        }
-        p.introductor:hover{
-          font-size: 22px;
         }
       }
 
@@ -169,11 +169,7 @@
 
       .hero__index-content{
         p.introductor{
-          font-size: 22px;
-          border-radius: 40%;
-        }
-        p.introductor:hover{
-          font-size: 24px;
+          font-size: 22px; 
         }
 
 
@@ -204,6 +200,9 @@
     
 }
 
+
+
+
 .cursos__index {
   background-color: $color-navbar; 
   padding: 60px 20px; 
@@ -215,9 +214,16 @@
     margin-bottom: 30px;
   }
 
+  // Para pantallas de escritorio
+  @include breakpoint(desktop) {
+    display: flex;
+    justify-content: center; // Centra los artículos en el contenedor
+    gap: 20px; // Agrega espacio entre los artículos
+  }
+
   .cursos__index-curso1, .cursos__index-curso2 {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; // Para pantallas pequeñas, los artículos están en columna
     justify-content: space-between;
     align-items: center;
     background-color: #fff; 
@@ -239,6 +245,7 @@
         width: 100%;
         border-bottom: 4px solid $color-verde; 
         transition: transform 0.3s ease;
+        margin-bottom: 10px;
         
         &:hover {
           transform: scale(1.05); 
@@ -267,7 +274,7 @@
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: darken($color-verde, 10%); 
+        background-color: $color-verde; 
       }
     }
 
@@ -284,27 +291,27 @@
         width: 80%;
         height: auto;
         img{
-          width: 100;
+          width: 100%;
           margin-bottom: 15px;
           box-shadow: 6px 18px 20px rgba(0, 0, 0, 0.5);
-
         }
       }
     }
   }
 
-  @include breakpoint(desktop){
-    h2 {
-      font-size: 3rem;
+  // Asegúrate de que los artículos se muestren uno al lado del otro en desktop
+  @include breakpoint(desktop) {
+    h2{
+      display: none;
     }
-    h3{
-      font-size: 2.7rem;
-    }
-    p{
-      font-size: 2rem;
+    .cursos__index-curso1, .cursos__index-curso2 {
+      flex-direction: column; // Mantiene la columna en pantallas pequeñas
+      width: 45%; // Ajusta el tamaño de los artículos
     }
   }
 }
+
+
 
 
 .blog__index{
@@ -465,6 +472,44 @@
       }
     }
   }
+
+
+  @include breakpoint(desktop){
+    .blog__index-noticia1{
+      h2{
+          font-size: 70px;
+      }
+      h3{
+          font-size: 30px;
+      }
+
+      p{
+          font-weight: 900;
+          font-size: 20px;
+      }
+      a{
+        font-size: 22px;
+        width: 220px;
+      }
+    }
+
+    .blog__index-noticia2{
+      h2{
+          font-size: 70px;
+      }
+      h3{
+        font-size: 30px;
+      }
+
+      p{
+        font-size: 20px;
+      }
+      a{
+        font-size: 22px;
+        width: 220px;
+      }
+    }
+  }
 }
 
 
@@ -603,6 +648,7 @@ section.hero_quienes-somos{
 section.hero_registro {
   background: linear-gradient(to right, #fff, #8ce08c);
   padding-top: 20px;
+  padding-bottom: 20px;
   @keyframes colorShift {
       0% {
         background-position: 0% 50%;
@@ -896,11 +942,25 @@ section.hero-cursos {
   }
 
   a:hover {
-    background-color: darken($color-verde, 10%);
+    background-color: $color-verde;
   }
 
 
   @include breakpoint(desktop){
+    .contenedor-desktop{
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      article{
+        width: 45%;
+        align-items: center;
+        justify-items: center;
+        p{
+          width: 400px;
+          height: 200px;
+        }
+      }
+    }
     h2 {
       font-size: 32px;
       background: none;
@@ -912,6 +972,34 @@ section.hero-cursos {
     }
     iframe{
       height: 400px;
+      width: 500px;
+    }
+  }
+
+  @include breakpoint(desktopxl){
+    .contenedor-desktop{
+
+      article{
+
+        p{
+          width: 500px;
+          font-size: 18px;
+          height: 200px;
+        }
+      }
+    }
+    h2 {
+      font-size: 32px;
+      background: none;
+      transition: all 0.4s ease;
+    }
+    h2:hover{
+      font-size: 34px;
+      color: $color-verde;
+    }
+    iframe{
+      height: 500px;
+      width: 700px;
     }
   }
 }

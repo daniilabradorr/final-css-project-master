@@ -1,214 +1,183 @@
-@keyframes scroll-horizontal {
-    from {
-        transform: translateX(60%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-@keyframes scroll-horizontal-desktop {
-    from {
-        transform: translateX(80%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
-@keyframes scroll-horizontal-desktop-xl {
-    from {
-        transform: translateX(120%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
-}
-
 header {
     .header__container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 15px 20px;
         background: linear-gradient(to right, #fff, #333);
+        position: relative;
+
         .logo-conquer {
-            padding: 0;
-                margin: 0;
-                background: transparent;
             img {
+                width: 200px;
                 background: transparent;
-                margin-bottom: 0;
-                padding: 0;
-                width: 500px;
             }
         }
 
-        nav {
-            overflow: hidden; 
-            white-space: nowrap; // Evita saltos de línea
+        // oculto el checkbox
+        .menu-checkbox {
+            display: none;
+        }
+
+        // toggle hamburguesa
+        .menu-toggle {
             display: flex;
-            
-            background: linear-gradient(to right, #fff, #333);
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background: $color-verde;
+            border-radius: 8px;
+            border: 2px solid #333;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            position: relative;
+            z-index: 1100;
+            transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+
+            &:hover {
+                background: $color-verde-oscuro; 
+                transform: scale(1.1);
+            }
+        }
+
+        // Menu principal (oculto por defecto)
+        .navbar-principal {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 10px 0;
+            z-index: 1000;
+            text-align: center;
+
+            max-height: 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out, opacity 0.4s ease-in-out, transform 0.4s ease-in-out, visibility 0.4s linear;
+
             ul {
                 display: flex;
-                gap: 20px;
-                margin-bottom: 0;
-
-                width: max-content; // Se expande según el contenido
-                background: transparent;
-                // Hace que el contenido se desplace en bucle infinito
-                animation: scroll-horizontal 9s linear infinite;
+                flex-direction: column;
+                gap: 15px;
+                list-style: none;
+                padding: 0;
+                margin: 0;
 
                 li {
-                    display: inline-block;
-                    background: transparent;
+                    text-align: center;
                 }
 
                 a {
-                    display: inline-block;
-                    font-size: 14px;
+                    font-size: 16px;
                     font-weight: 700;
-                    background: transparent;
                     text-decoration: none;
-                    color: $text-color;
+                    color: white;
                     padding: 10px 20px;
-                    transition: transform 0.3s ease-in-out; // Transición
+                    transition: color 0.3s ease-in-out;
 
-                    // Detiene la animación y aplica zoom en hover
-                    &:hover {
-                        color: #fff;
-                        animation-play-state: paused;
-                        transform: scale(1.1); // Pequeño zoom
-                    }
-
-                    // También detiene la animación si el enlace está activo
+                    &:hover,
                     &.active {
-                        animation-play-state: paused;
-                        color: #fff;
-                        transform: scale(1.1);
+                        color: $color-verde;
                     }
                 }
             }
+        }
 
-            // Si el mouse está sobre el nav, se detiene toda la animación
-            &:hover ul {
-                animation-play-state: paused;
+        // Mostrar el menú cuando el checkbox está marcado
+        .menu-checkbox:checked + .menu-toggle + .navbar-principal {
+            max-height: 500px;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+
+    @include breakpoint(tablethorizontal) {
+        .header__container {
+
+            .logo-conquer img {
+                width: 250px;
+            }
+            .menu-toggle {
+                display: none;  
+            }
+
+            .navbar-principal {
+                display: flex;
+                position: static;
+                flex-direction: row;
+                background: transparent;
+                max-height: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+
+                ul {
+                    flex-direction: row;
+                    padding: 0;
+                }
             }
         }
     }
 
+    @include breakpoint(desktop) {
+        .header__container {
+            padding: 25px 40px;
+            gap: 32px;
 
-
-
-    // Breakpoint para la resolución de Tablet
-    @include breakpoint(tablet){
-        .header__container{
-            .logo-conquer {
-                display: flex;
-                flex-direction: column;
-                img {
-                    align-content: center;
-                    width:800px;
-
-                }
+            .logo-conquer img {
+                width: 320px;
             }
 
-            nav {
-                overflow: hidden; 
-                white-space: nowrap; // Evita saltos de línea
-                display: flex;
-                
-                background: linear-gradient(to right, #fff, #333);
-                ul {
-                    display: flex;
-                    gap: 80px;
-                    margin-bottom: 0;
-    
-                    width: max-content; // Se expande según el contenido
-                    background: transparent;
-                    // Hace que el contenido se desplace en bucle infinito
-                    animation: scroll-horizontal 9s linear infinite;
-    
+            .menu-toggle {
+                display: none;  
+            }
 
-    
-                    a {
-                        font-size: 20px;
-                        font-weight: 900;
+            .navbar-principal {
+                display: flex;
+                position: static;
+                flex-direction: row;
+                background: transparent;
+                max-height: none;
+                transform: none;
+                opacity: 1;
+                visibility: visible;
+
+                ul {
+                    flex-direction: row;
+                    gap: 25px;
+                    a{
+                        padding-left: 10;
+                        padding-right: 10;
                     }
                 }
-
             }
         }
     }
 
+    @include breakpoint(desktopxl) {
+        .header__container {
+            padding: 30px 80px;
+            gap: 120px;
 
-
-
-    // Breakpoint para la resolución de Tablet Horizontal
-    @include breakpoint(tablethorizontal){
-        .header__container{
-            .logo-conquer {
-                display: flex;
-                flex-direction: column;
-                img {
-                    align-self: center;
-                    width:850px;
-                }
+            .logo-conquer img {
+                width: 400px;
             }
-            nav {
-                ul {
-                    animation: scroll-horizontal 8s linear infinite;
-                    a {
-                        font-size: 22px;
-                    }
-                }
 
+            .navbar-principal ul {
+                gap: 40px;
+
+                a {
+                    font-size: 20px;
+                    font-weight: 800;
+                }
             }
         }
-    }
-
-
-    // Breakpoint para la resolución de desktop
-    @include breakpoint(desktop){
-        .header__container{
-            .logo-conquer {
-                display: flex;
-                flex-direction: column;
-                img {
-                    align-self: center;
-                    width:850px;
-                }
-            }
-            nav {
-                ul {
-                    gap: 120px;
-                    animation: scroll-horizontal-desktop 7.5s linear infinite;
-                    a {
-                        font-size: 25px;
-                    }
-                }
-
-            }
-        }
-    }
-
-    // Breakpoint para la resolución de desktopXL
-    @include breakpoint(desktopxl){
-        .header__container{
-            .logo-conquer {
-                img {
-                    width: 850px;
-                }
-            }
-            nav {
-                ul {
-                    gap: 140px;
-                    animation: scroll-horizontal-desktop-xl 8.5s linear infinite;
-    
-    
-                    a {
-                        font-size: 26px;
-                        font-weight: 1000;
-                    }
-                }
-            }
-        } 
     }
 }

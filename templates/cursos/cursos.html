@@ -38,6 +38,12 @@
           <a class="logo-conquer" href="../../index.html">
             <img class="img-logo-conquer" src="../../img/home/logotipo/logo-conquerblocks-color.png" alt="Logotipo de Conquerblocks">
           </a>
+
+          <!-- Toggle del menú con checkbox -->
+          <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+          <label for="menu-toggle" class="menu-toggle">&#9776;</label>
+
+
           <nav class="navbar-principal">
             <ul>
               <li><a href="../../index.html">Home</a></li>
@@ -56,8 +62,8 @@
   <main>
     <section class="hero-cursos"> <!-- Este es el section de los cursos de la academia -->
         <h2>Nuestros Cursos</h2> <!-- Un título para la sección -->
-        
-        <article class="1-cursos"> <!-- Este es el article del curso de Máster en Desarrollo Web Full Stack -->
+        <div class="contenedor-desktop">
+          <article class="1-cursos"> <!-- Este es el article del curso de Máster en Desarrollo Web Full Stack -->
             <h3>Máster en Desarrollo Web Full Stack</h3>
             <iframe 
                 src="https://www.youtube.com/embed/WTw0D-DrcB4" 
@@ -69,21 +75,23 @@
                 En el podrás aprender todo lo necesario y te enseñaremos a tener un repositorio y portafolio funcional en GitHub y a tener entrevistas de trabajo, además...
             </p>
             <a href="master_fullstack.html">Ver más detalles</a>
-        </article>
-    
-        <article class="2-cursos"> <!-- Este es el article del curso de Máster en Blockchain -->
-            <h3>Máster en Blockchain</h3>
-            <iframe 
-                src="https://www.youtube.com/embed/6Nu1hzbtdf0" 
-                title="Video sobre Máster en Blockchain" 
-                frameborder="0" 
-                allowfullscreen>
-            </iframe>
-            <p>Descubre el futuro de la tecnología con nuestro máster en Blockchain.
-                Formarás parte de la mayor comunidad de estudiantes de desarrollo en habla hispana, donde podrás apoyarte junto a tus compañeros en todo el proceso.Comparte tus dudas y aprendizajes, encuentra compañeros de estudio y trabaja en proyectos colaborativos. Además de...
-            </p>
-            <a href="master_blockchain.html">Ver más detalles</a>
-        </article>
+          </article>
+      
+          <article class="2-cursos"> <!-- Este es el article del curso de Máster en Blockchain -->
+              <h3>Máster en Blockchain</h3>
+              <iframe 
+                  src="https://www.youtube.com/embed/6Nu1hzbtdf0" 
+                  title="Video sobre Máster en Blockchain" 
+                  frameborder="0" 
+                  allowfullscreen>
+              </iframe>
+              <p>Descubre el futuro de la tecnología con nuestro máster en Blockchain.
+                  Formarás parte de la mayor comunidad de estudiantes de desarrollo en habla hispana, donde podrás apoyarte junto a tus compañeros en todo el proceso.Comparte tus dudas y aprendizajes, encuentra compañeros de estudio y trabaja en proyectos colaborativos. Además de...
+              </p>
+              <a href="master_blockchain.html">Ver más detalles</a>
+          </article>
+        </div>
+        
     </section>
     
     <aside>
